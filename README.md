@@ -1,3 +1,5 @@
+### tdi 토이 플젝
+
 ## Getting Started
 
 # Install packages
@@ -25,4 +27,4 @@ npm run dev
 1. canvas안에 Sphere 넣기
 2. `react-use-gesture` or `three.js` 통해 구의 움직임 제어 추가
 
-# tdi 토이 플젝
+
