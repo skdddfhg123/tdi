@@ -8,15 +8,34 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Memory {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  endedAt   DateTime?
+  imageUrl  String
+
+  // User 모델과의 관계 설정
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+
+  // Image 모델과의 관계 설정 (1대 다 관계)
+  images    Image[]
+}
+
 model Image {
   id        String    @id @default(uuid())
   imageUrl  String    @db.Text
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  endedAt   DateTime?
 
+  // User 모델과의 관계 설정
   userId    String
   user      User      @relation(fields: [userId], references: [id])
+
+  // Memory 모델과의 관계 설정
+  memoryId  String
+  memory    Memory    @relation(fields: [memoryId], references: [id])
 
   @@index([userId])
 }
@@ -31,5 +50,8 @@ model User {
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
+  // Memory 모델과의 관계 설정
+  memories       Memory[]
+  // Image 모델과의 관계 설정
   images         Image[]
 }
