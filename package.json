@@ -17,6 +17,7 @@
     "clsx": "^2.0.0",
     "lucide-react": "^0.298.0",
     "matter-js": "^0.19.0",
+    "matter-wrap": "^0.2.0",
     "next": "14.0.4",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
@@ -29,6 +30,7 @@
     "three": "^0.159.0"
   },
   "devDependencies": {
+    "@types/matter-js": "^0.19.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
